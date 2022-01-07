@@ -28,7 +28,7 @@ CMD [ "node", "app.js" ]
 
 #Commands to run the image
 #docker run -p 3000:80 -d --name <container_name_> --rm <image_name>
-
+# docker run --name backend --rm -d --network=mynet -v "/backend/node_modules" backend
 #Bind mount command
 # docker run -p 3000:80 -d --name my_container --rm -v "/home/vmwhoami/Desktop/docker_training/:/app" modulethree
 
