@@ -1,4 +1,4 @@
-FROM node
+FROM node:14
 
 WORKDIR /backend
 
@@ -19,7 +19,7 @@ EXPOSE $PORT
 # This is an annonimous volume
 # VOLUME [ "app/node_modules" ]
 
-CMD [ "node", "app.js" ]
+CMD [ "npm", "start" ]
 
 #Commands to build the image 
 # -t, --tag list                Name and optionally a tag in the 'name:tag' format
@@ -41,3 +41,8 @@ CMD [ "node", "app.js" ]
 #
 # docker run -p 3000:80 -d --name duminica --rm -v "/home/vmwhoami/Desktop/docker_training:/app:ro" -v /app/temp -v app/node_modules n ode-with-start-command
 # docker volume --help
+
+#RUN MONGO COMMANDS
+ docker run --name mongodb -d -v data:/data/db -e MONGO_INITDB_ROOT_USERNAME=vitalie -e MONGO_INITDB_ROOT_PASSWORD=secret mongo --auth
+
+# docker run --name back -d -p 80:80 -v /home/vmwhoami/Desktop/multi-container-app/backend/app.js:/backend -v logs:/backend/logs -v /backend/node_modules --network=mynet  backend 
