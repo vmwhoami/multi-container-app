@@ -11,6 +11,8 @@ RUN npm install
 COPY . .
 
 ENV PORT 80
+ENV MONGO_USERNAME=root
+ENV MONGO_PASSWORD=secret
 
 EXPOSE $PORT
 
@@ -42,7 +44,7 @@ CMD [ "npm", "start" ]
 # docker run -p 3000:80 -d --name duminica --rm -v "/home/vmwhoami/Desktop/docker_training:/app:ro" -v /app/temp -v app/node_modules n ode-with-start-command
 # docker volume --help
 
-#RUN MONGO COMMANDS
- docker run --name mongodb -d -v data:/data/db -e MONGO_INITDB_ROOT_USERNAME=vitalie -e MONGO_INITDB_ROOT_PASSWORD=secret mongo --auth
-
-# docker run --name back -d -p 80:80 -v /home/vmwhoami/Desktop/multi-container-app/backend/app.js:/backend -v logs:/backend/logs -v /backend/node_modules --network=mynet  backend 
+#RUN MONGO with authentication
+#  docker run --name mongodb -d --rm -v data:/data/db  -e MONGO_INITDB_ROOT_USERNAME=vitalie -e MONGO_INITDB_ROOT_PASSWORD=secret --network=mynet mongo
+# Run backend container
+#  docker run --name backend -d --rm -p 80:80 -v /home/vmwhoami/Desktop/multi-container-app/backend:/backend -v logs:/backend/logs -v /backend/node_modules --network=mynet  backend 
