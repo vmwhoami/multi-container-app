@@ -1,0 +1,23 @@
+version: "3.9"
+services:
+  mongodb:
+    image:  "mongo"
+    volumes:
+      - data:/data/db
+    env_file:
+      - ./env/mongo.env
+  backend:
+    build: ./backend
+    # Long variant 
+    # build:
+    #   context: ./backend
+    #   dockrfile: Dockerfile
+    #   args:
+          # some-arg: 1
+    ports:
+      -'80:80'
+  # frontend:
+
+# If any named volumes are used you should add volumes key like below
+volumes:
+  data:

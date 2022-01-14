@@ -1,7 +1,0 @@
-version: "3.9"
-services:
-  image:  "mongo"
-  volumes:
-    - /data/db
-  env_file:
-    - ./env/mongo.env
