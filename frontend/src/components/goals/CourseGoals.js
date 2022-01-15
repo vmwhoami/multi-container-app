@@ -4,20 +4,20 @@ import './CourseGoals.css';
 import Card from '../UI/Card';
 import GoalItem from './GoalItem';
 
-function CourseGoals(props) {
-  const hasNoGoals = !props.goals || props.goals.length === 0;
-
+export default ({goals,onDeleteGoal}) => {
+  const hasNoGoals = !goals || goals.length === 0;
+ 
   return (
     <section id='course-goals'>
       <Card>
         {hasNoGoals && <h2>No goals found. Start adding some!</h2>}
         <ul>
-          {props.goals.map((goal) => (
+          {goals.map((goal) => (
             <GoalItem
               key={goal.id}
               id={goal.id}
               text={goal.text}
-              onDelete={props.onDeleteGoal}
+              onDelete={onDeleteGoal}
             />
           ))}
         </ul>
@@ -25,5 +25,3 @@ function CourseGoals(props) {
     </section>
   );
 }
-
-export default CourseGoals;

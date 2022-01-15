@@ -2,12 +2,14 @@ version: "3.9"
 services:
   mongodb:
     image:  "mongo"
+    container_name: mongo
     volumes:
       - data:/data/db
     env_file:
       - ./env/mongo.env
   backend:
     build: ./backend
+    container_name: backend
     # Long variant 
     # build:
     #   context: ./backend
@@ -24,7 +26,17 @@ services:
       - ./env/backend.env
     depends_on:
       - mongodb
-  # frontend:
+  frontend:
+    build: ./frontend
+    container_name: frontend
+    volumes:
+      - ./frontend/src:/frontend/src 
+    ports:
+      - '3000:3000'
+    # Next two options are for starting in interactive mode
+    stdin_open: true
+    tty: true
+    
 
 # If any named volumes are used you should add volumes key like below
 volumes:

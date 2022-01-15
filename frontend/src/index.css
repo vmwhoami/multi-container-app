@@ -26,23 +26,23 @@ input {
   display: block;
   width: 100%;
   margin-bottom: 1rem;
-  border-radius: 30px;
+  border-radius: 5px;
   text-align: center;
   color: #242424;
 }
 
 input:focus {
   outline: none;
-  border-color: #6e0040;
-  background-color: #ffdff2;
+  border-color: #1d006e;
+  background-color: #dff5ff;
 }
 
 button {
   font: inherit;
-  background-color: #6e0040;
+  background-color: #003c6e;
   color: white;
-  border: 1px solid #6e0040;
-  border-radius: 30px;
+  border: 1px solid #003c6e;
+  border-radius: 5px;
   padding: 0.5rem 1.5rem;
   cursor: pointer;
   font-size: 2rem;
@@ -50,6 +50,6 @@ button {
 
 button:hover,
 button:active {
-  background-color: #b80e71;
-  border-color: #b80e71;
+  background-color: #003663;
+  border-color: #003663;
 }
